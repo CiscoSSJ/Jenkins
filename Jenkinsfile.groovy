@@ -1,5 +1,10 @@
 podTemplate(inheritFrom: 'icagent01') {
   node(POD_LABEL) {
+    stage('Clean Workspace') {
+        container('jenkins-slave') {
+            cleanWs()
+        }
+    }
     stage ('git checkout'){
         steps.echo ":: Checking out code"
 		steps.checkout( [ $class: 'GitSCM',
