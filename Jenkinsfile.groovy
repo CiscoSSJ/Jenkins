@@ -9,7 +9,7 @@ podTemplate(inheritFrom: 'icagent01') {
 	container('git') {
 		steps.echo ":: Checking out code"
 			steps.checkout( [ $class: 'GitSCM',
-			  branches: [ [ name: "${branch}" ] ],
+			  branches: [ [ name: "${params.branch}" ] ],
 			  doGenerateSubmoduleConfigurations: false,
 			  extensions: [],
 			  gitTool: 'Default',
